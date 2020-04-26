@@ -6,9 +6,9 @@ import Blob from "cross-blob";
 
 const port = 9000;
 
-jest.mock("browser-or-node", () => ({
-  isNode: true,
-  isBrowser: false,
+jest.mock("../src/environment", () => ({
+  isNode: () => true,
+  isBrowser: () => false,
 }));
 
 const getBytes = (bytes: number) =>
@@ -129,6 +129,20 @@ describe("node fetch", () => {
 
     expect(progressHandler).not.toHaveBeenCalled();
     expect(data.length).toBe(0);
+  });
+
+  it("does not receive progress events after unsub", async () => {
+    const total = 65415 * 5;
+    const reader = await getBytes(total);
+    const progressHandler = jest.fn();
+    const unsub = reader.onProgress(progressHandler);
+
+    unsub();
+
+    const data = await reader.read();
+
+    expect(progressHandler).not.toHaveBeenCalled();
+    expect(new Blob(data).size).toBe(total);
   });
 
   afterAll(() => {

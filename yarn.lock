@@ -535,7 +535,7 @@
   resolved "https://registry.yarnpkg.com/@types/cookiejar/-/cookiejar-2.1.1.tgz#90b68446364baf9efd8e8349bb36bd3852b75b80"
   integrity sha512-aRnpPa7ysx3aNW60hTiCtLHlQaIFsXFCgQlpakNgDNVFzbtusSY8PwjAQgRWfSk0ekNoBjO51eQRB6upA9uuyw==
 
-"@types/events@*":
+"@types/events@*", "@types/events@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
   integrity sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
@@ -943,7 +943,7 @@ babel-preset-jest@^25.4.0:
     babel-plugin-jest-hoist "^25.4.0"
     babel-preset-current-node-syntax "^0.1.2"
 
-baconjs@*, baconjs@^3.0.13:
+baconjs@*:
   version "3.0.13"
   resolved "https://registry.yarnpkg.com/baconjs/-/baconjs-3.0.13.tgz#241ba3dab1d3ad5e798fb3e4ee2952a979511fcf"
   integrity sha512-5rrJFq9O69UwSALfLumxdeHGeBoe8dT6bTu5SllcnB6N44/iCXntZKiDG6WdTwxcx4Im1B1pQ3K0tXKUWgy89Q==
@@ -1024,11 +1024,6 @@ braces@^3.0.1:
   integrity sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==
   dependencies:
     fill-range "^7.0.1"
-
-browser-or-node@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/browser-or-node/-/browser-or-node-1.2.1.tgz#cd65172da6a7fd689c7a650d326bd2ad145419a7"
-  integrity sha512-sVIA0cysIED0nbmNOm7sZzKfgN1rpFmrqvLZaFWspaBAftfQcezlC81G6j6U2RJf4Lh66zFxrCeOsvkUXIcPWg==
 
 browser-process-hrtime@^1.0.0:
   version "1.0.0"

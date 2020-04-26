@@ -14,4 +14,6 @@ type OutputValue = string | Buffer | Uint8Array;
 
 type Output = OutputValue[];
 
-export { isNil, Listen, Progress, OutputValue, Output };
+type Unsub = () => void;
+
+export { isNil, Listen, Progress, OutputValue, Output, Unsub };

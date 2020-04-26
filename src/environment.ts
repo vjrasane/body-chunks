@@ -1,6 +1,8 @@
-import { isBrowser as browser, isNode as node } from "browser-or-node";
-
-const isBrowser = (): boolean => browser;
-const isNode = (): boolean => node;
+const isBrowser = (): boolean =>
+  typeof window !== "undefined" && typeof window.document !== "undefined";
+const isNode = (): boolean =>
+  typeof process !== "undefined" &&
+  process.versions != null &&
+  process.versions.node != null;
 
 export { isBrowser, isNode };

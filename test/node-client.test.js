@@ -1,10 +1,11 @@
 import get from "../src";
 import nodeFetch from "node-fetch";
 
-jest.mock("browser-or-node", () => ({
-  isNode: true,
-  isBrowser: false
-}))
+jest.mock("../src/environment", () => ({
+  isNode: () => true,
+  isBrowser: () => false,
+}));
+
 jest.mock("node-fetch", () => jest.fn());
 jest.useFakeTimers();
 

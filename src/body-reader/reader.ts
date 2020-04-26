@@ -1,5 +1,5 @@
-import { Progress, Listen, Output, OutputValue, isNil } from "../common";
-import { Bus, Unsub } from "baconjs";
+import { Unsub, Listen, Output, OutputValue, isNil } from "../common";
+import { EventEmitter } from "events";
 import { Response as NodeResponse } from "node-fetch";
 import createError from "http-errors";
 
@@ -13,7 +13,7 @@ abstract class BodyReader {
   received: number = 0;
   chunks: Output = [];
   closed: boolean = false;
-  progressBus = new Bus<Progress>();
+  emitter = new EventEmitter();
   constructor(response: Response | NodeResponse) {
     if (!response.ok)
       throw createError(response.status, response.statusText, {
@@ -41,7 +41,7 @@ abstract class BodyReader {
 
   private broadcast = () => {
     const { received, total } = this;
-    this.progressBus.push({
+    this.emitter.emit("progress", {
       bytes: {
         received,
         total,
@@ -50,7 +50,10 @@ abstract class BodyReader {
     });
   };
 
-  onProgress = (listen: Listen): Unsub => this.progressBus.onValue(listen);
+  onProgress = (listen: Listen): Unsub => {
+    this.emitter.on("progress", listen);
+    return () => this.emitter.removeListener("progress", listen);
+  };
 
   async cancel(): Promise<void> {
     this.closed = true;

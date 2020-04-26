@@ -1,8 +1,8 @@
 import get from "../src";
 
-jest.mock("browser-or-node", () => ({
-  isNode: false,
-  isBrowser: true,
+jest.mock("../src/environment", () => ({
+  isNode: () => false,
+  isBrowser: () => true,
 }));
 
 jest.useFakeTimers();
