@@ -1,6 +1,8 @@
 import { Progress, Listen, Output, OutputValue } from "../common";
 import { Bus, Unsub } from "baconjs";
 import { isNil } from "lodash";
+import { Response as NodeResponse } from "node-fetch";
+import createError from "http-errors";
 
 type ReadResult = {
   done: boolean;
@@ -13,8 +15,12 @@ abstract class BodyReader {
   chunks: Output = [];
   closed: boolean = false;
   progressBus = new Bus<Progress>();
-  constructor(total: number) {
-    this.total = total;
+  constructor(response: Response | NodeResponse) {
+    if (!response.ok)
+      throw createError(response.status, response.statusText, {
+        headers: response.headers,
+      });
+    this.total = parseInt(response.headers.get("Content-Length"), 10);
   }
 
   get chunkSizes(): number[] {

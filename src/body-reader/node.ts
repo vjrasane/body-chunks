@@ -6,7 +6,7 @@ class NodeBodyReader extends BodyReader {
   watch: (value: string | Buffer) => void = noop;
   cache: (string | Buffer)[] = [];
   constructor(response: NodeResponse) {
-    super(parseInt(response.headers.get("Content-Length"), 10));
+    super(response);
     response.body.on("readable", () => {
       if (this.closed) return;
       const value = response.body.read();

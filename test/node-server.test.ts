@@ -6,6 +6,11 @@ import Blob from "cross-blob";
 
 const port = 9000;
 
+jest.mock("browser-or-node", () => ({
+  isNode: true,
+  isBrowser: false,
+}));
+
 const getBytes = (bytes: number) =>
   get(`http://localhost:${port}/download/${bytes}`);
 
@@ -125,20 +130,6 @@ describe("node fetch", () => {
     expect(progressHandler).not.toHaveBeenCalled();
     expect(data.length).toBe(0);
   });
-
-  // it("calls noop if not reading yet", async () => {
-  //   const total = 65415 * 5;
-  //   const reader = await getBytes(total);
-  //   const progressHandler = jest.fn();
-  //   reader.onProgress(progressHandler);
-
-  //   // await reader.cancel();
-
-  //   // const data = await reader.read();
-
-  //   expect(progressHandler).not.toHaveBeenCalled();
-  //   // expect(data.length).toBe(0);
-  // });
 
   afterAll(() => {
     server.close();

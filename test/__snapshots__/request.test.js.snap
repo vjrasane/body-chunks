@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`request passes request init to fetch 1`] = `
+BrowserBodyReader {
+  "__read": [Function],
+  "broadcast": [Function],
+  "chunks": Array [],
+  "closed": false,
+  "onProgress": [Function],
+  "progress": [Function],
+  "progressBus": Bus {
+    "_isEventStream": true,
+    "_isObservable": true,
+    "desc": Desc {
+      "_isDesc": true,
+      "args": Array [],
+      "context": "Bacon",
+      "method": "Bus",
+    },
+    "dispatcher": Dispatcher {
+      "_handleEvent": undefined,
+      "_subscribe": [Function],
+      "ended": false,
+      "handleEvent": [Function],
+      "observable": [Circular],
+      "prevError": undefined,
+      "pushing": false,
+      "queue": Array [],
+      "subscribe": [Function],
+      "subscriptions": Array [],
+      "unsubSrc": undefined,
+    },
+    "ended": false,
+    "id": 2,
+    "initialDesc": Desc {
+      "_isDesc": true,
+      "args": Array [],
+      "context": "Bacon",
+      "method": "Bus",
+    },
+    "pushQueue": undefined,
+    "pushing": false,
+    "subscriptions": Array [],
+    "unsubAll": [Function],
+  },
+  "read": [Function],
+  "readChunk": [Function],
+  "reader": undefined,
+  "received": 0,
+  "total": 100,
+}
+`;
+
+exports[`request rejects if request is not ok 1`] = `"status"`;
+
+exports[`request throws error in unknown environment 1`] = `"Unsupported JavaScript environment, expected one of: node, browser"`;

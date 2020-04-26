@@ -1,6 +1,10 @@
 import get from "../src";
 import nodeFetch from "node-fetch";
 
+jest.mock("browser-or-node", () => ({
+  isNode: true,
+  isBrowser: false
+}))
 jest.mock("node-fetch", () => jest.fn());
 jest.useFakeTimers();
 
@@ -41,7 +45,7 @@ describe("reader", () => {
     const data = await reader.read();
 
     expect(progressHandler.mock.calls).toMatchSnapshot();
-    expect(data.map((d) => d.length)).toEqual([20, 30, 10, 40]);
+    expect(data).toMatchSnapshot();
   });
 
   it("does not receive chunks if cancelled", async () => {
@@ -77,7 +81,7 @@ describe("reader", () => {
     const data = await reader.read();
 
     expect(progressHandler.mock.calls).toMatchSnapshot();
-    expect(data.map((d) => d.length)).toEqual([20, 30, 10, 40]);
+    expect(data).toMatchSnapshot();
   });
 
   it("stops if chunk is nil", async () => {
@@ -93,6 +97,6 @@ describe("reader", () => {
     const data = await reader.read();
 
     expect(progressHandler.mock.calls).toMatchSnapshot();
-    expect(data.map((d) => d.length)).toEqual([20, 30, 10]);
+    expect(data).toMatchSnapshot();
   });
 });

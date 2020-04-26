@@ -3,7 +3,7 @@ import { BodyReader, ReadResult } from "./reader";
 class BrowserBodyReader extends BodyReader {
   reader: ReadableStreamDefaultReader<Uint8Array>;
   constructor(response: Response) {
-    super(parseInt(response.headers.get("Content-Length"), 10));
+    super(response);
     this.reader = response.body.getReader();
   }
 
@@ -12,10 +12,10 @@ class BrowserBodyReader extends BodyReader {
     return { done, value };
   };
 
-  cancel = async (): Promise<void> => {
+  async cancel(): Promise<void> {
     super.cancel();
     await this.reader.cancel();
-  };
+  }
 }
 
 export default BrowserBodyReader;

@@ -1,19 +1,23 @@
 import get from "../src";
-import __fetch from "../src/fetch";
 import createError from "http-errors";
+import { isNode, isBrowser } from "../src/environment";
 
-jest.mock("../src/fetch", () => jest.fn());
-jest.mock("../src/body-reader", () => ({
-  getBodyReader: jest.fn().mockImplementation(() => "reader"),
+jest.mock("../src/environment", () => ({
+  isNode: jest.fn().mockImplementation(() => false),
+  isBrowser: jest.fn().mockImplementation(() => true),
 }));
 
 describe("request", () => {
+  beforeAll(() => {
+    global.fetch = jest.fn();
+  })
+
   beforeEach(() => {
-    __fetch.mockClear();
+    global.fetch.mockClear();
   });
 
   it("rejects if request is not ok", async () => {
-    __fetch.mockImplementationOnce(() => ({
+    global.fetch.mockImplementationOnce(() => ({
       ok: false,
       status: 420,
       statusText: "status",
@@ -21,20 +25,43 @@ describe("request", () => {
 
     const promise = get("/");
 
-    await expect(promise).rejects.toEqual(createError(420, "status"));
+    await expect(promise).rejects.toThrowErrorMatchingSnapshot();
   });
 
   it("passes request init to fetch", async () => {
-    __fetch.mockImplementationOnce(() => ({ ok: true }));
+    const response = {
+      ok: true,
+      body: {
+        getReader: jest.fn(),
+      },
+      headers: new Headers({
+        "Content-Length": 100,
+      }),
+    };
+
+    global.fetch.mockImplementationOnce(() => response);
+
     const requestInit = {};
     const promise = get("/url", requestInit);
 
     const {
       calls: [[url, opts]],
-    } = __fetch.mock;
+    } = global.fetch.mock;
     expect(url).toEqual("/url");
     expect(opts).toBe(requestInit);
 
-    await expect(promise).resolves.toEqual("reader");
+    await expect(promise).resolves.toMatchSnapshot();
   });
+
+  it("throws error in unknown environment", async () => {
+    isBrowser.mockImplementationOnce(() => false);
+
+    const promise = get("/url");
+
+    await expect(promise).rejects.toThrowErrorMatchingSnapshot();
+  });
+
+  afterAll(() => {
+    global.fetch = undefined;
+  })
 });

@@ -64,6 +64,23 @@ Array [
 ]
 `;
 
+exports[`reader calls noop if not reading yet 2`] = `
+Array [
+  Object {
+    "length": 20,
+  },
+  Object {
+    "length": 30,
+  },
+  Object {
+    "length": 10,
+  },
+  Object {
+    "length": 40,
+  },
+]
+`;
+
 exports[`reader can read chunks even after delay 1`] = `
 Array [
   Array [
@@ -128,6 +145,23 @@ Array [
 ]
 `;
 
+exports[`reader can read chunks even after delay 2`] = `
+Array [
+  Object {
+    "length": 20,
+  },
+  Object {
+    "length": 30,
+  },
+  Object {
+    "length": 10,
+  },
+  Object {
+    "length": 40,
+  },
+]
+`;
+
 exports[`reader stops if chunk is nil 1`] = `
 Array [
   Array [
@@ -188,5 +222,19 @@ Array [
       ],
     },
   ],
+]
+`;
+
+exports[`reader stops if chunk is nil 2`] = `
+Array [
+  Object {
+    "length": 20,
+  },
+  Object {
+    "length": 30,
+  },
+  Object {
+    "length": 10,
+  },
 ]
 `;

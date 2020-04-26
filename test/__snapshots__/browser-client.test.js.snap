@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reader calls noop if not reading yet 1`] = `
+Array [
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 0,
+        "total": 100,
+      },
+      "chunks": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 0,
+        "total": 100,
+      },
+      "chunks": Array [],
+    },
+  ],
+]
+`;
+
+exports[`reader calls noop if not reading yet 2`] = `Array []`;
+
+exports[`reader can read chunks even after delay 1`] = `
+Array [
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 0,
+        "total": 100,
+      },
+      "chunks": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 0,
+        "total": 100,
+      },
+      "chunks": Array [],
+    },
+  ],
+]
+`;
+
+exports[`reader can read chunks even after delay 2`] = `Array []`;
+
+exports[`reader stops only when reader returns done 1`] = `
+Array [
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 0,
+        "total": 100,
+      },
+      "chunks": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 0,
+        "total": 100,
+      },
+      "chunks": Array [],
+    },
+  ],
+]
+`;
+
+exports[`reader stops only when reader returns done 2`] = `Array []`;
