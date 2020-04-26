@@ -1,6 +1,6 @@
 {
   "name": "body-chunks",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "vjrasane <vjrasane@gmail.com>",
   "license": "Apache-2.0",
   "main": "./build/index.js",
