@@ -1,11 +1,12 @@
 
 # body-chunks
 
-[![][ci badge]][ci] [![][coverage badge]][coveralls] [![][npm badge]][npm] [![][size badge]][npm] [![][license badge]][license]
+[![][ci badge]][ci] [![][coverage badge]][coveralls] [![][npm badge]][npm] [![][size badge]][size] [![][license badge]][license]
 
 [npm badge]: https://img.shields.io/npm/v/body-chunks?color=red&style=flat-square
 [npm]: https://www.npmjs.com/package/body-chunks
 [size badge]: https://flat.badgen.net/packagephobia/install/body-chunks@latest
+[size]: https://packagephobia.now.sh/result?p=body-chunks%40latest
 [ci badge]: https://img.shields.io/github/workflow/status/vjrasane/body-chunks/CI?style=flat-square
 [ci]: https://github.com/vjrasane/body-chunks/actions?query=workflow%3ACI
 [coverage badge]: https://img.shields.io/coveralls/github/vjrasane/body-chunks?style=flat-square
