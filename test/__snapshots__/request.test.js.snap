@@ -1,26 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`request passes request init to fetch 1`] = `
-BrowserBodyReader {
-  "__read": [Function],
-  "broadcast": [Function],
-  "chunks": Array [],
-  "closed": false,
-  "emitter": EventEmitter {
-    "_events": Object {},
-    "_eventsCount": 0,
-    "_maxListeners": undefined,
-  },
-  "onProgress": [Function],
-  "progress": [Function],
-  "read": [Function],
-  "readChunk": [Function],
-  "reader": undefined,
-  "received": 0,
-  "total": 100,
-}
-`;
-
-exports[`request rejects if request is not ok 1`] = `"status"`;
+exports[`request rejects if request is not ok 1`] = `"420 status"`;
 
 exports[`request throws error in unknown environment 1`] = `"Unsupported JavaScript environment, expected one of: node, browser"`;

@@ -1,12 +1,19 @@
 import { Unsub, Listen, Output, OutputValue, isNil } from "../common";
 import { EventEmitter } from "events";
 import { Response as NodeResponse } from "node-fetch";
-import createError from "http-errors";
 
 type ReadResult = {
   done: boolean;
   value?: OutputValue;
 };
+
+class HttpError extends Error {
+  readonly response: Response | NodeResponse;
+  constructor(response: Response | NodeResponse) {
+    super(`${response.status} ${response.statusText}`);
+    this.response = response;
+  }
+}
 
 abstract class BodyReader {
   total: number;
@@ -15,10 +22,7 @@ abstract class BodyReader {
   closed: boolean = false;
   emitter = new EventEmitter();
   constructor(response: Response | NodeResponse) {
-    if (!response.ok)
-      throw createError(response.status, response.statusText, {
-        headers: response.headers,
-      });
+    if (!response.ok) throw new HttpError(response);
     this.total = parseInt(response.headers.get("Content-Length"), 10);
   }
 

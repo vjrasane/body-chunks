@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "outDir": "./build",
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "lib": ["ES6", "DOM",  "es2018.promise"]
   },
   "files": [

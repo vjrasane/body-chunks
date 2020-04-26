@@ -1,6 +1,7 @@
-[![][ci badge]][ci] [![][coverage badge]][coveralls] [![][npm badge]][npm] [![][size badge]][npm] [![][license badge]][license]
 
 # body-chunks
+
+[![][ci badge]][ci] [![][coverage badge]][coveralls] [![][npm badge]][npm] [![][size badge]][npm] [![][license badge]][license]
 
 [npm badge]: https://img.shields.io/npm/v/body-chunks?color=red&style=flat-square
 [npm]: https://www.npmjs.com/package/body-chunks

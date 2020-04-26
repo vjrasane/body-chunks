@@ -12,7 +12,8 @@ module.exports = {
     "ts-jest": {
       tsConfig: {
         allowJs: true,
-        esModuleInterop: true
+        esModuleInterop: true,
+        target: "es6"
       }
     }
   }

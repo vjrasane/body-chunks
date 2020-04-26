@@ -1,6 +1,7 @@
 import get from "../src";
 import createError from "http-errors";
 import { isNode, isBrowser } from "../src/environment";
+import BrowserBodyReader from "../src/body-reader/browser";
 
 jest.mock("../src/environment", () => ({
   isNode: jest.fn().mockImplementation(() => false),
@@ -50,7 +51,7 @@ describe("request", () => {
     expect(url).toEqual("/url");
     expect(opts).toBe(requestInit);
 
-    await expect(promise).resolves.toMatchSnapshot();
+    await expect(promise).resolves.toBeInstanceOf(BrowserBodyReader);
   });
 
   it("throws error in unknown environment", async () => {
