@@ -1,5 +1,3 @@
-import { isUndefined } from "lodash";
-
 type Listen = (progress: Progress) => void;
 
 type Progress = {
@@ -10,8 +8,10 @@ type Progress = {
   chunks: number[];
 };
 
+const isNil = (value?: any): boolean => value === undefined || value === null;
+
 type OutputValue = string | Buffer | Uint8Array;
 
 type Output = OutputValue[];
 
-export { Listen, Progress, OutputValue, Output };
+export { isNil, Listen, Progress, OutputValue, Output };

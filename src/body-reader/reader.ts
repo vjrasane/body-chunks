@@ -1,6 +1,5 @@
-import { Progress, Listen, Output, OutputValue } from "../common";
+import { Progress, Listen, Output, OutputValue, isNil } from "../common";
 import { Bus, Unsub } from "baconjs";
-import { isNil } from "lodash";
 import { Response as NodeResponse } from "node-fetch";
 import createError from "http-errors";
 

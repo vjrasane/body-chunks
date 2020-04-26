@@ -1,9 +1,10 @@
-import { isNil, noop } from "lodash";
 import { BodyReader, ReadResult } from "./reader";
 import { Response as NodeResponse } from "node-fetch";
+import { isNil } from "../common";
 
+const noOp = () => {};
 class NodeBodyReader extends BodyReader {
-  watch: (value: string | Buffer) => void = noop;
+  watch: (value: string | Buffer) => void = noOp;
   cache: (string | Buffer)[] = [];
   constructor(response: NodeResponse) {
     super(response);
@@ -21,7 +22,7 @@ class NodeBodyReader extends BodyReader {
       } else {
         this.watch = () => {
           resolve(this.shiftCache());
-          this.watch = noop;
+          this.watch = noOp;
         };
       }
     });
