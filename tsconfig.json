@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./types",
+    "esModuleInterop": true,
+    "outDir": "./build",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["ES6", "DOM",  "es2018.promise"]
+  },
+  "files": [
+    "./src/index.ts"
+  ]
+}

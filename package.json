@@ -1,0 +1,41 @@
+{
+  "name": "download-chunks",
+  "version": "1.0.0",
+  "author": "vjrasane <vjrasane@gmail.com>",
+  "license": "Apache-2.0",
+  "main": "./build/index.js",
+  "types" : "./types/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:ci": "jest --ci --coverage",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "type": "module",
+  "dependencies": {
+    "@types/baconjs": "^3.0.0",
+    "@types/http-errors": "^1.6.3",
+    "@types/lodash": "^4.14.150",
+    "@types/node": "^13.13.2",
+    "@types/node-fetch": "^2.5.7",
+    "baconjs": "^3.0.13",
+
+    "http-errors": "^1.7.3",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0",
+    "rxjs": "^6.5.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/jest": "^25.2.1",
+    "@types/supertest": "^2.0.8",
+    "express": "^4.17.1",
+    "jest": "^25.4.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^25.4.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.8.3",
+    "cross-blob": "^1.2.2"
+  }
+}

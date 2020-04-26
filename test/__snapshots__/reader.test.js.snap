@@ -1,0 +1,192 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reader calls noop if not reading yet 1`] = `
+Array [
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 0,
+        "total": 100,
+      },
+      "chunks": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 20,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 50,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+        30,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 60,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+        30,
+        10,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 100,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+        30,
+        10,
+        40,
+      ],
+    },
+  ],
+]
+`;
+
+exports[`reader can read chunks even after delay 1`] = `
+Array [
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 0,
+        "total": 100,
+      },
+      "chunks": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 20,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 50,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+        30,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 60,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+        30,
+        10,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 100,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+        30,
+        10,
+        40,
+      ],
+    },
+  ],
+]
+`;
+
+exports[`reader stops if chunk is nil 1`] = `
+Array [
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 0,
+        "total": 100,
+      },
+      "chunks": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 20,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 50,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+        30,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 60,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+        30,
+        10,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "bytes": Object {
+        "received": 60,
+        "total": 100,
+      },
+      "chunks": Array [
+        20,
+        30,
+        10,
+      ],
+    },
+  ],
+]
+`;
