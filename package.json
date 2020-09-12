@@ -14,7 +14,7 @@
   },
   "type": "module",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@types/baconjs": "^3.0.0",
